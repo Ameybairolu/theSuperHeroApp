@@ -1,0 +1,545 @@
+/* Importing font style and family */
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Changa:wght@700;800&display=swap");
+
+/* removing default padding and margins and setting global font-family to Audiowide/Changa */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0%;
+  padding: 0%;
+  font-family: "Audiowide", cursive;
+  font-family: "Changa", sans-serif;
+}
+
+/****************** Header Decoration **********************/
+header {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(
+    90deg,
+    hsla(197, 100%, 63%, 1) 0%,
+    hsla(294, 100%, 55%, 1) 100%
+  );
+  z-index: 3;
+  border-bottom: 2px solid black;
+}
+
+/* Setting Animation for the search input */
+
+input[type="text"] {
+  position: relative;
+  padding: 15px 40px 15px 20px;
+  width: 0px;
+  height: 8px;
+  color: #525252;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 5px;
+  /* background: linear-gradient(to right, #ffffff 0%, #464747 #f9f9f9 100%); */
+  background-color: transparent;
+  transition: width 0.4s ease;
+  outline: none;
+}
+input[type="text"]:focus {
+  width: 200px;
+  border: 2px solid black;
+}
+input[type="text"]:hover {
+  width: 200px;
+  border: 2px solid black;
+}
+
+i {
+  position: relative;
+  left: -37px;
+  color: #8233c5;
+}
+
+/* Button Animation */
+
+.btn-shine {
+  padding: 10px 48px;
+  color: #000;
+  background: linear-gradient(to right, #4d4d4d 0, #fff 10%, #000 20%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 2px solid black;
+}
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+
+/******************* Main *******************/
+
+main {
+  background-color: white;
+  position: relative;
+  top: 20vh;
+  margin: 0%;
+  height: auto;
+  display: flex;
+}
+
+.container {
+  width: 40vw;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: 25vh;
+  }
+  main {
+    top: 25vh;
+  }
+  .container {
+    width: 100%;
+  }
+}
+
+.card-container {
+  padding-top: 50px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+/***************** Card animation ***************/
+.card {
+  border-spacing: 0px;
+  border-left: 2px solid black;
+  margin: 0% 5% 40px;
+  position: relative;
+  width: 150px;
+  height: 300px;
+  background: linear-gradient(
+    90deg,
+    hsla(197, 100%, 63%, 1) 0%,
+    hsla(294, 100%, 55%, 1) 100%
+  );
+  cursor: pointer;
+  z-index: 1;
+}
+.card::after {
+  border-right-color: #fff;
+  border-style: solid;
+  border-top-color: transparent;
+  border-width: 15px 15px 0 0;
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  box-sizing: border-box;
+}
+.card-red {
+  height: 55%;
+  width: 100%;
+  background-color: #e62429;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.card .title {
+  position: absolute;
+  color: #fff;
+  top: 65%;
+  left: 5%;
+  z-index: 2;
+}
+
+.card-red-hover {
+  height: 100%;
+}
+
+.card-red img {
+  position: relative;
+  transition: 0.5s;
+  width: 100%;
+}
+
+.img-hover {
+  width: 120% !important;
+}
+
+.card-red .image-container {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  main .card-container {
+    justify-content: center;
+  }
+  main .card-container .card {
+    margin-bottom: 5%;
+    width: 200px !important;
+    height: 350px;
+  }
+  .card-red .image-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+}
+
+/***************** Side bar/Favourites animation ***********************/
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  position: fixed;
+  z-index: 3;
+  right: -100%;
+  top: 0%;
+  width: 400px;
+  /* min-height: 100%; */
+  height: 100%;
+  overflow: auto;
+  /* overflow-y: hidden; */
+  transition: right 0.4s linear;
+}
+
+.side-bar .card {
+  width: 90%;
+  height: 10%;
+}
+
+.side-bar .card-red {
+  width: 120px;
+  height: 100%;
+}
+
+.side-bar .card .title {
+  position: absolute;
+  color: #fff;
+  top: 25%;
+  left: 40%;
+  /* z-index: 2; */
+  transition: 0.5s;
+}
+
+.side-bar .card .card-red .image-container {
+  position: relative;
+}
+
+.side-bar .card .card-red .image-container img {
+  position: absolute;
+  transform: translateY(-25%);
+}
+
+.side-bar > .card::after {
+  border-right-color: #202020;
+}
+
+@media (max-width: 500px) {
+  .side-bar {
+    width: 100%;
+  }
+}
+
+/* Close button animation */
+
+.close-btn-container {
+  background-color: inherit;
+  position: sticky;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  z-index: 7;
+}
+
+.close-btn {
+  top: 0%;
+  background-color: transparent;
+  color: white;
+  margin: 6% 0%;
+  align-self: center;
+  width: 50px;
+  height: 40px;
+  border: 2px solid white;
+}
+
+.close-btn:hover {
+  background: linear-gradient(
+    90deg,
+    hsla(197, 100%, 63%, 1) 0%,
+    hsla(294, 100%, 55%, 1) 100%
+  );
+}
+
+/********** Spinner/loading display animation *******************/
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+}
+.spinner img {
+  position: relative;
+  bottom: 8%;
+  background-color: inherit;
+  height: 7rem;
+  width: 7rem;
+  fill: black;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*************** After a card is clicked, highlighted area with details of character is displayed. Animation for that **********************/
+.highlighted {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 7;
+  transition: left 0.2s ease-in-out;
+}
+.overview {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.content-holder {
+  height: 90%;
+  width: 70%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.image-display {
+  background: linear-gradient(
+    90deg,
+    hsla(197, 100%, 63%, 1) 0%,
+    hsla(294, 100%, 55%, 1) 100%
+  );
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.image-display .buttons {
+  margin-top: 10%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons button {
+  display: block;
+  /* width: 100%; */
+  width: 200px;
+}
+
+.image-display img {
+  position: relative;
+  top: 13%;
+  width: auto;
+  max-height: 40%;
+  border-radius: 2%;
+}
+
+.image-display h1 {
+  position: relative;
+  top: 16%;
+  width: auto;
+  border: 2px solid black;
+  padding: 0px 3px;
+  cursor: pointer;
+}
+
+.addToBookmark::before {
+  content: "➕";
+}
+
+.bookmarked::before {
+  content: "✅";
+}
+
+.bookmarked {
+  background-color: black;
+  color: #fff;
+}
+
+.basic-info {
+  width: 50%;
+  height: 100%;
+  overflow: auto;
+}
+
+.details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  border-top: 20px solid #f00;
+}
+
+.details > h1 {
+  position: absolute;
+  align-self: center;
+  top: 10%;
+}
+
+.details > div > div > h3 {
+  width: 120px;
+  display: inline-block;
+}
+.details > div {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.details > div > div {
+  display: flex;
+  align-items: center;
+}
+
+/************** Skills animation in highlight*******************/
+.skill-button {
+  /* margin: 15px 40px; */
+  display: inline-block;
+  justify-content: center;
+  flex-direction: column;
+  color: lightyellow;
+  font-size: 17px;
+  height: auto;
+  width: 13rem;
+  box-sizing: border-box;
+  background-color: lightgrey;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.skill-name {
+  margin-left: 10px;
+  height: inherit;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.common-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 2rem;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #5e5555;
+}
+#java {
+  background: linear-gradient(
+    90deg,
+    hsla(197, 100%, 63%, 1) 0%,
+    hsla(294, 100%, 55%, 1) 100%
+  );
+  animation: ninety 2s linear;
+}
+
+@media (max-width: 768px) {
+  .content-holder {
+    width: 93%;
+  }
+  .overview {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+  }
+  .image-display {
+    position: relative;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 0px;
+  }
+  .basic-info {
+    border-left: none;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+}
+
+/* To remove the scroll bar permanently */
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/*********** Footer graphics *****************/
+
+footer {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 0%;
+  color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}

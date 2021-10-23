@@ -12,9 +12,9 @@ and waits till 5 seconds to fetch it. Otherwise, this simple throws an error.
 This AJAX function is employed in model's loadSearchResults function
  */
 
-export const AJAX = async function (url, uploadData = undefined) {
+export const AJAX = async function (url) {
     try {
-        const fetchPro = uploadData ? fetch(url) : fetch(url);
+        const fetchPro = fetch(url);
 
         const res = await Promise.race([fetchPro, timeout(5)]);//Change
         const data = await res.json();

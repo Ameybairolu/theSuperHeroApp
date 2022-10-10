@@ -16,8 +16,8 @@ export const loadSearchResults = async function (query, bool) {
 		// const link = bool ? ``
 		const data = await AJAX(
 			bool
-				? `https://superheroapi.com/api.php/5668073463249670/${query}`
-				: `https://superheroapi.com/api.php/5668073463249670/search/${query}`,
+				? `https://superheroapi.com/api/5668073463249670/${query}`
+				: `https://superheroapi.com/api/5668073463249670/search/${query}`,
 		);
 
 		if (bool) return data;
